@@ -1,0 +1,212 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Game container */
+.game-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+h1 {
+    color: #4a5568;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Game info panel */
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.score, .high-score {
+    background: #e2e8f0;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #4a5568;
+}
+
+/* Game board */
+.game-board {
+    width: 400px;
+    height: 400px;
+    border: 3px solid #4a5568;
+    border-radius: 10px;
+    margin: 0 auto 20px;
+    background: #f7fafc;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    gap: 1px;
+    padding: 2px;
+}
+
+/* Snake segments */
+.snake-segment {
+    background: #48bb78;
+    border-radius: 2px;
+    border: 1px solid #38a169;
+    transition: all 0.1s ease;
+}
+
+.snake-head {
+    background: #2d7d32;
+    border-radius: 3px;
+    border: 2px solid #1b5e20;
+    position: relative;
+}
+
+.snake-head::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+/* Food */
+.food {
+    background: #e53e3e;
+    border-radius: 50%;
+    border: 2px solid #c53030;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Controls */
+.controls {
+    margin-bottom: 20px;
+}
+
+.control-instructions {
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.control-instructions p {
+    margin: 5px 0;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.start-btn {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+}
+
+.restart-btn {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+}
+
+.play-again-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-size: 1.1em;
+    padding: 15px 30px;
+}
+
+/* Game over screen */
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.98);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.game-over h2 {
+    color: #e53e3e;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.game-over p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #4a5568;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .game-container {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .game-board {
+        width: 300px;
+        height: 300px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .game-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button {
+        margin: 5px;
+        padding: 10px 20px;
+    }
+}
